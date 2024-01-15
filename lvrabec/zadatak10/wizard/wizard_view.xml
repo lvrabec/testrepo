@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+
+<record id="select_date_inherited" model="ir.ui.view">
+  <field name="name">seelct_date_inherited_view</field>
+  <field name="model">hr.contract</field>
+  <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+  <field name="arch" type="xml">
+
+    <xpath expr="//sheet/group" position="before">
+      <button string="Wizard" name="launch_wiz" type="object" class="btn-secondary" attrs="{'invisible': [('state', '=', 'close')]}"/>
+    </xpath>
+    
+  </field>
+</record>
+
+
+<record id="select_date_form_view" model="ir.ui.view">
+    <field name="name">select.date.wizard.form</field>
+    <field name="model">select.date.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Željeni datum završetka">
+            <sheet>
+                <group>
+                    <field name="user_selected_date" />
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special='cancel'/>
+                    <button string="OK" name="setDate" type="object" class="oe_highlight"/>
+                </footer>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record id="select_date_wizard" model="ir.actions.act_window">
+    <field name="name">Datum Završetka</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">select.date.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="select_date_form_view"></field>
+    <field name="target">new</field>
+</record>
+
+
+
+  </data>
+</odoo>

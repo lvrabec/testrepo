@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_hr_employee_napredno" name="maticna_knjiga_napredna">
+        <t t-call="web.html_container">
+        <t t-call="web.internal_layout">
+                    <h2>Matična Knjiga</h2>
+                    <table class="table table-striped"  style="border: 2px solid black">
+                        <thead>
+                            <tr>
+                                <th style="border: 2px solid black" >Name</th>
+                                <th style="border: 2px solid black" >Department</th>
+                                <th style="border: 2px solid black" >Date of first contract</th>
+                                <th style="border: 2px solid black" >Birthday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="doc">  
+                                    <tr style="border: 2px dotted black">
+                                        <td style="border: 1px solid black">
+                                         <t t-esc="doc[0]"/>
+                                        </td>
+                                        <td style="border: 1px solid black">
+                                        <t t-esc="doc[1]"/>
+                                        </td>
+                                        <td style="border: 1px solid black">
+                                        <t t-esc="doc[2]"/>
+                                        </td>
+                                        <td style="border: 1px solid black">
+                                        <t t-esc="doc[3]"/>
+                                        </td>                                        
+                                    </tr>       
+                               
+                            </t>
+                        </tbody>
+                    </table>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="hr_employee_maticna_napredno"
+        string="Maticna knjiga napredno"
+        model="hr.employee"
+        report_type="qweb-pdf"
+        name="zadatak9.report_hr_employee_napredno"
+        file="zadatak9.report_hr_employee_napredno"
+    />
+</odoo>

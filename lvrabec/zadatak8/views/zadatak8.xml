@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+  
+    <record id="hr_employee_search_custom" model="ir.ui.view">
+    <field name="name"></field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_filter"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group" position="inside">
+      
+      <filter string="Group by gender" name="gender_male" domain="[]" context="{'group_by': 'gender'}" />
+      
+      </xpath>
+    </field>
+  </record>
+  
+  </data>
+</odoo>

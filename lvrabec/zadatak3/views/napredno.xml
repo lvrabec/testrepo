@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <record id="ime_prezime_toggle_switch" model="ir.ui.view">
+      <field name="name">ime.prezime.toogle.switch</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">       
+          <div class='app_settings_block' data_string='zadatak3' id='zadatak3_toggle_switch' string='zadatak3' data-key ='zadatak3'>
+            <h2>Zadatak3</h2>         
+              <div class='row mt16 o_settings_container' id='zadatak3_setting'>
+                <div class='text-muted content-group mt16' >
+                  <span class='o_form_label'>
+                    Prikaži [prezime] [ime]: 
+                      <span>
+                        <field name="setting_field" />
+                      </span>
+                  </span>
+                </div>
+              </div>
+          </div>               
+        </xpath>    
+      </field>
+    </record>
+
+
+<record id="zadatak3_settings_action" model="ir.actions.act_window">
+  <field name="name">Settings</field>
+  <field name="type">ir.actions.act_window</field>
+  <field name="res_model">res.config.settings</field>
+  <field name="view_mode">form</field>
+  <field name="target">inline</field>
+  <field name="context">{'module':'zadatak3','bin_size': False }</field>
+</record>
+
+
+<menuitem
+  id="zadatak3_settings_menu"
+  name="Settings zadatak3"
+  parent='hr.menu_human_resources_configuration'
+  action='zadatak3_settings_action'
+  groups='base.group_system'
+  sequence="0"/>
+
+
+  </data>
+</odoo>

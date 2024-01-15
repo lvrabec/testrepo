@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+
+  <!-- Menu items -->
+
+<menuitem
+  id="putni_nalozi_id"
+  name="Putni Nalozi"
+  sequence="10"/>
+
+<menuitem
+  id="putni_nalozi_menu_item"
+  name="Putni nalog"
+  parent="putni_nalozi_id"
+  sequence="10"/>
+
+<menuitem
+  id="putni_nalozi_submenu_id"
+  name="Lista putnih naloga"
+  action="zadatak11_action_window"
+  parent="putni_nalozi_menu_item"
+  sequence="10"/>
+
+
+  <!-- Action za Window -->
+
+<record id="zadatak11_action_window" model="ir.actions.act_window">
+  <field name="name">Zadatak 11 - Putni nalozi</field>
+  <field name="res_model">zadatak11.zadatak11</field>
+  <field name="view_mode">tree,form</field>
+  <field name="help" type="html">
+  
+  <p class="oe_view_nocontent_create">Unesite prvi putni nalog</p>
+    
+  </field>
+</record>
+
+
+  <!-- Form view -->
+  <record id="zadatak11_view_form" model="ir.ui.view">
+    <field name="name">zadatak11.view.form</field>
+    <field name="model">zadatak11.zadatak11</field>
+    <field name="arch" type="xml">
+      <form string="Putni Nalog">
+        <sheet>
+          <header>
+               <button string="Prebaci" name="status_change" type="object" class="oe_highlight"  
+                  attrs="{'invisible': ['|', ('state', '=', 'zav'), ('state', '=', None)]}"                           
+          />  
+          <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+          </header>
+          <group name='info_o_zaposleniku' string='Info o zaposleniku'>
+            <field name="zaposlenik" />
+          </group>
+          <group name="info_o_nalogu" string="Info o nalogu">
+            <field name="pocetni_datum" />
+            <field name="zavrsni_datum" />
+            <field name="polaziste" />
+            <field name="odrediste" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+<!-- tree view -->
+
+<record id="zadatak11_view_tree" model="ir.ui.view">
+  <field name="name">zadatak11.zadatak11.view.tree</field>
+  <field name="model">zadatak11.zadatak11</field>
+  <field name="arch" type="xml">
+    <tree string="Putni Nalozi" name='putni_nalozi'>
+    <field name="zaposlenik" />
+    <field name="pocetni_datum" />
+    <field name="zavrsni_datum" />
+    <field name="polaziste" />
+    <field name="odrediste" />
+    <field name="state" />
+    </tree>
+  </field>
+</record>
+
+  </data>
+</odoo>

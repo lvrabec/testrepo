@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.djeca.djeca,accesss_djeca_djeca,zadatak5.model_djeca_djeca,base.group_user,1,1,1,1
+access.hr.employee,accesss_hr_employee_hr_employee,zadatak5.model_hr_employee,base.group_user,1,1,1,1
